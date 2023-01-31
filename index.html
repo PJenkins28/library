@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>My Library</title>
 </head>
 <body>
-    <script src="main.js"></script>
+    <div class="wrapper">
+        <header>
+            <h1>myLibrary</h1>
+            <section class="login-links">
+                <span class="login"><a href="#">Sign in</span></a>
+                <span class="login"><a href="#">Sign up</span></a>
+        </section>
+        </header>
+        <main class="library-container">
+            <section class="dashboard">
+                <section class="quote">
+                    <p>“A reader lives a thousand lives before he dies ... 
+                        The man who never reads lives only one.”</p>
+                    <span class="author-quote">George R.R. Martin</span>
+                </section>
+                <button class="add">Add Book</button>    
+            </section>
+            <section class="books">
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+            </section>
+        </main>
+        <section class="stats">
+            <div class="stats-style-containter">
+                <h2>Reading Stats</h2>
+                <section class="stat-item-container">
+                    <span class="stat-item">Completed Books:</span>
+                    <span class="stat-item">Pages Read:</span>
+                    <span class="stat-item">Total Books in Library:</span>
+                </section>
+            </div>
+        </section>
+    </div>
 </body>
+<script src="main.js"></script>
 </html>
