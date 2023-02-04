@@ -46,7 +46,7 @@ a {
     font-size: 2rem;
     font-weight: bold;
 }
-.login {
+.login, .add {
     padding: 10px;
     width: 100px;
     text-align: center;
@@ -58,9 +58,10 @@ main {
     grid-area: main;
     /* background:linear-gradient(180deg,black, rgb(179, 38, 59)); */
     /* background:linear-gradient(180deg,rgb(179, 38, 59),black); */
-    background:linear-gradient(180deg,black, rgb(128, 100, 104));
+    /* background:linear-gradient(180deg,black, rgb(128, 100, 104)); */
+    background:rgb(157, 155, 155);
     display: grid;
-    grid-template: 0.4fr 2fr / 1fr;
+    grid-template: 0.1fr 1fr / 1fr;
     grid-template-areas: 
     "dashboard"
     "books";
@@ -69,7 +70,7 @@ main {
     grid-area: dashboard;
     display: flex;
     height: 150px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 50px;
     gap: 5rem;
@@ -83,6 +84,9 @@ main {
 }
 .book {
     border: 2px solid white;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgb(50, 46, 47);
     height: 300px;
     width: 300px;
 }
@@ -99,8 +103,11 @@ main {
    font-size: 1.5rem;
 }
 .add {
+    display: flex; 
+    justify-content: center;
     width: 100px;
-    height: 30px;
+    font-size: 2rem;
+    font-weight: bold;
     border-radius: 0.7rem;
     font-size: 1.4rem;
 }
@@ -110,21 +117,23 @@ main {
 .stats {
     grid-area: stats;
     /* background:linear-gradient(180deg,black, rgb(179, 38, 59)); */
-    background:linear-gradient(180deg,black, rgb(128, 100, 104));
+    /* background:linear-gradient(180deg,black, rgb(128, 100, 104)); */
     /* background:linear-gradient(180deg,rgb(179, 38, 59),black); */
+    background: rgb(52, 49, 49);;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .stats-style-containter {
-    height: 85%;
-    width: 80%;
-    padding: 10px;
-    background-color: rgb(229, 211, 211);
-    color: black;
-    border: 2px solid rgb(0, 0, 0);
+    height: 50%;
+    width: 90%;
+    padding: 10px 20px;
+    /* background-color: rgb(229, 211, 211); reddish-white color*/
+    /* background-color: white; */
+    color: white;
+    /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 0.7rem;
-    box-shadow: 5px 5px 5px rgb(50, 46, 47);
+    /* box-shadow: 5px 5px 5px rgb(50, 46, 47); */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -132,7 +141,7 @@ main {
 }
 .stats-style-containter h2 {
     font-size: 3rem;
-    
+    text-align: center;
 }
 .stat-item-container {
     display: flex;
