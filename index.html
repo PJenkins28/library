@@ -29,27 +29,37 @@
                 <button class="add">Add Book</button>
                 <div class="modal-container" id="modal-cont">
                     <section class="modal">
-                        <ul class="book-info">
-                            <li>
-                                <label for="title" id="title">Title</label>
-                                <input type="text" id=title name="title" required>
-                            </li>
-                            <li>
-                                <label for="Author" id="author">Author</label>
-                                <input type="text" id="author" name="title" required>
-                            </li>
-                            <li>
-                                <label for="page-number" id="page-number"># of Pages</label>
-                                <input type="text" id="page-number" name="title" required>
-                            </li>
-                            <li>
-                                <label for="fav-quote" id="fav-quote">Main Takeaway</label>
-                                <textarea id="fav-quote" name="excerpt" rows="3" maxlength="450"></textarea>
-                            </li>
-                            <li>
-                                <button id="submit" type="submit">Add to Library</button>
-                            </li>
-                        </ul>
+                        <form>
+                            <ul class="book-info">
+                                <li>
+                                    <label for="title" id="title">Title</label>
+                                    <input type="text" id=title name="title" required>
+                                </li>
+                                <li>
+                                    <label for="Author" id="author">Author</label>
+                                    <input type="text" id="author" name="title" required>
+                                </li>
+                                <li>
+                                    <label for="page-number" id="page-number"># of Pages</label>
+                                    <input type="number" max="99999" id="page-number" name="title" required>
+                                </li>
+                                <li>
+                                    <label for="fav-quote" id="fav-quote">Main Takeaway</label>
+                                    <textarea id="fav-quote" name="excerpt" rows="3" maxlength="450"></textarea>
+                                </li>
+                                <li>
+                                    <label for="read-status" id="read-status">Have you read it?</label>
+                                    <input type="checkbox" name="read-status">
+                                </li>
+                                <li>
+                                    <section class="modal-btns">
+                                        <button id="submit" type="submit">Add to Library</button>
+                                        <button id="close" type="reset">Cancel</button>
+                                    </section>
+                                </li>
+
+                            </ul>
+                        </form>
                     </section>
                 </div>    
             </section>
@@ -76,13 +86,14 @@
             <div class="stats-style-containter">
                 <h2>Reading Stats</h2>
                 <section class="stat-item-container">
-                    <span class="stat-item">Completed Books:</span>
-                    <span class="stat-item">Pages Read:</span>
-                    <span class="stat-item">Total Books in Library:</span>
+                    <span class="stat-item">Completed Books</span>
+                    <span class="stat-item">Pages Read</span>
+                    <span class="stat-item">Total Books in Library</span>
                 </section>
             </div>
         </section>
     </div>
+    <script src="main.js"></script>
 </body>
-<script src="main.js"></script>
+
 </html>

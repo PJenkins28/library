@@ -33,3 +33,21 @@ addBook(newMoon);
 console.log(myLibrary);
 console.log(songOfTheLioness.status);
 console.log(myLibrary[1]);
+
+// Modal interactivity
+
+const addBtn = document.querySelector(".add");
+const modalCtnr = document.querySelector(".modal-container");
+const submit = document.querySelector("#submit");
+const closeBtn = document.querySelector("#close");
+
+// Hides modal
+function removeModal() {
+  modalCtnr.classList.remove("show");
+}
+
+addBtn.addEventListener("click", () => {
+  modalCtnr.classList.add("show");
+});
+submit.addEventListener("submit", removeModal);
+closeBtn.addEventListener("click", removeModal);

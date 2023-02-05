@@ -103,7 +103,10 @@ main {
     border-radius: 0.7rem;
     font-size: 1.4rem;
 }
-#submit {
+button {
+    box-shadow: 5px 5px 5px rgb(62, 18, 29);
+}
+#submit, #close {
     align-self: center; 
     text-align: center;
     font-size: 1.8rem;
@@ -111,10 +114,15 @@ main {
     background-color: rgb(88, 88, 88);
     width: 150px;
     height: 45px;
-    border: 2px solid rgb(255, 255, 255);
+    border: none;
     color: white;
 }
-#submit:hover, .add:hover, .login:hover {
+.modal-btns {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+#submit:hover, #close:hover, .add:hover, .login:hover {
     background-color: rgb(200, 14, 64);
     border: 2px solid rgb(200, 14, 64);
     cursor: pointer;
@@ -129,6 +137,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
 }
 .modal {
     background-color: white;
@@ -138,12 +152,12 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 40%;
-    height: 70%;
+    width: 50%;
+    height: 80%;
     padding: 50px 50px;
     border-radius: 1.5rem;
     font-size: 1.5rem;
-    min-width: 350px;
+    min-width: 400px;
 }
 .modal label {
     font-size: 1.8rem;
@@ -151,17 +165,17 @@ main {
 .modal textarea {
     font-family: 'Open Sans', sans-serif;
     max-height: 100px;
-    max-width: 250px;
+    max-width: 350px;
 }
 .modal input, .modal textarea {
-    width: 250px;
+    width: 350px;
     height: 30px;
     border: none;
     border-bottom: 1px solid rgb(110, 49, 65);
     outline: none;
 }
 input:focus, textarea:focus, input:hover, textarea:hover {
-    border-bottom: 2px solid rgb(219, 21, 74)
+    border-bottom: 2px solid rgb(219, 21, 74);
 }
 ul {
     list-style: none;
@@ -175,6 +189,13 @@ li {
     display: flex;
     flex-direction: column;
 
+}
+#read-status {
+    align-self: center;
+    padding-bottom: 10px;
+}
+input:checked {
+    accent-color: rgb(219, 21, 74);
 }
 .add:hover{
     cursor: pointer;
