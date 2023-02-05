@@ -8,12 +8,11 @@ body {
     padding: 0;
     margin: 0;
     color: white;
-    /* font-family: 'Roboto', sans-serif; */
     font-family: 'Open Sans', sans-serif;
 }
 .wrapper {
     display: grid;
-    grid-template: .2fr 2fr / 2fr 1fr;
+    grid-template: .2fr 2fr / 2fr .5fr;
     grid-template-areas:
         "header header"
         "main stats";
@@ -25,12 +24,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #272c37; */
-    /* background-color: #F78361; */
-    /* background: rgb(245, 75, 100); */
     background: rgb(0, 0, 0);
-    /* background:rgb(179, 38, 59); */
-    /* box-shadow: 0 5px 2px -2px rgb(246, 242, 242); */
 }
 h1 {
     font-size: 5rem;
@@ -56,9 +50,6 @@ a {
 }
 main {
     grid-area: main;
-    /* background:linear-gradient(180deg,black, rgb(179, 38, 59)); */
-    /* background:linear-gradient(180deg,rgb(179, 38, 59),black); */
-    /* background:linear-gradient(180deg,black, rgb(128, 100, 104)); */
     background:rgb(157, 155, 155);
     display: grid;
     grid-template: 0.1fr 1fr / 1fr;
@@ -86,13 +77,14 @@ main {
     border: 2px solid white;
     border-radius: 1rem;
     background-color: white;
-    box-shadow: 5px 5px 5px rgb(50, 46, 47);
+    box-shadow: 5px 5px 5px rgb(62, 18, 29);
     height: 300px;
     width: 300px;
 }
 .quote {
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 .quote > p {
     font-size: 2rem;
@@ -102,23 +94,93 @@ main {
    align-self: flex-end;
    font-size: 1.5rem;
 }
-.add {
+.add{
     display: flex; 
     justify-content: center;
-    width: 100px;
+    width: 100px; 
     font-size: 2rem;
     font-weight: bold;
     border-radius: 0.7rem;
     font-size: 1.4rem;
+}
+#submit {
+    align-self: center; 
+    text-align: center;
+    font-size: 1.8rem;
+    border-radius: 0.7rem;
+    background-color: rgb(88, 88, 88);
+    width: 150px;
+    height: 45px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+}
+#submit:hover, .add:hover, .login:hover {
+    background-color: rgb(200, 14, 64);
+    border: 2px solid rgb(200, 14, 64);
+    cursor: pointer;
+}
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    background-color: white;
+    color: black;
+    box-shadow: 5px 5px 5px rgb(62, 18, 29);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    height: 70%;
+    padding: 50px 50px;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    min-width: 350px;
+}
+.modal label {
+    font-size: 1.8rem;
+}
+.modal textarea {
+    font-family: 'Open Sans', sans-serif;
+    max-height: 100px;
+    max-width: 250px;
+}
+.modal input, .modal textarea {
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(110, 49, 65);
+    outline: none;
+}
+input:focus, textarea:focus, input:hover, textarea:hover {
+    border-bottom: 2px solid rgb(219, 21, 74)
+}
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 0;
+}
+li {
+    display: flex;
+    flex-direction: column;
+
 }
 .add:hover{
     cursor: pointer;
 }
 .stats {
     grid-area: stats;
-    /* background:linear-gradient(180deg,black, rgb(179, 38, 59)); */
-    /* background:linear-gradient(180deg,black, rgb(128, 100, 104)); */
-    /* background:linear-gradient(180deg,rgb(179, 38, 59),black); */
     background: rgb(52, 49, 49);;
     display: flex;
     justify-content: center;
@@ -128,12 +190,8 @@ main {
     height: 50%;
     width: 90%;
     padding: 10px 20px;
-    /* background-color: rgb(229, 211, 211); reddish-white color*/
-    /* background-color: white; */
     color: white;
-    /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 0.7rem;
-    /* box-shadow: 5px 5px 5px rgb(50, 46, 47); */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

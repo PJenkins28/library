@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <linmnk rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -29,7 +26,32 @@
                         The man who never reads lives only one.”</p>
                     <span class="author-quote">George R.R. Martin</span>
                 </section>
-                <button class="add">Add Book</button>    
+                <button class="add">Add Book</button>
+                <div class="modal-container" id="modal-cont">
+                    <section class="modal">
+                        <ul class="book-info">
+                            <li>
+                                <label for="title" id="title">Title</label>
+                                <input type="text" id=title name="title" required>
+                            </li>
+                            <li>
+                                <label for="Author" id="author">Author</label>
+                                <input type="text" id="author" name="title" required>
+                            </li>
+                            <li>
+                                <label for="page-number" id="page-number"># of Pages</label>
+                                <input type="text" id="page-number" name="title" required>
+                            </li>
+                            <li>
+                                <label for="fav-quote" id="fav-quote">Main Takeaway</label>
+                                <textarea id="fav-quote" name="excerpt" rows="3" maxlength="450"></textarea>
+                            </li>
+                            <li>
+                                <button id="submit" type="submit">Add to Library</button>
+                            </li>
+                        </ul>
+                    </section>
+                </div>    
             </section>
             <section class="books">
                 <div class="book"></div>
