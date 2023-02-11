@@ -76,6 +76,7 @@ main {
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     grid-gap: 2rem;
     padding: 0 50px;
+    width: 40%;
 }
 .book {
     display: flex; 
@@ -97,10 +98,14 @@ h3 {
     padding: 0 10px;
     color: rgb(200, 14, 64);
 }
+.pink {
+    color: rgb(200, 14, 64);
+    font-weight: bold;
+}
 span {
     font-size: 2rem;
 }
-.read-class {
+.read-class, .deleteBtn {
     padding: 10px;
     width: 150px;
     text-align: center;
@@ -108,6 +113,13 @@ span {
     color: white;
     background-color: rgb(200, 14, 64);
     box-shadow: 5px 5px 5px rgb(62, 18, 29);
+}
+.read-class:hover, .deleteBtn:hover {
+    cursor: pointer;
+}
+.btn-container {
+    display: flex;
+    gap: 1.5rem;
 }
 .quote {
     display: flex;
@@ -121,15 +133,18 @@ span {
 .author-quote {
    align-self: flex-end;
    font-size: 1.5rem;
+   font-weight: bold;
 }
 .add{
     display: flex; 
     justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 100px; 
+    height: 100px;
     font-size: 2rem;
     font-weight: bold;
-    border-radius: 0.7rem;
-    font-size: 1.4rem;
+    border-radius: 5rem;
 }
 button {
     box-shadow: 5px 5px 5px rgb(62, 18, 29);
@@ -157,6 +172,7 @@ button {
     background-color: rgb(200, 14, 64);
     border: 2px solid rgb(200, 14, 64);
     cursor: pointer;
+    color: white;
 }
 .modal-container {
     position: fixed;

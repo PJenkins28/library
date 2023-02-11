@@ -1,94 +1,123 @@
-// Modal interactivity
-
+// DOM objects
 const addBtn = document.querySelector(".add");
 const modalCtnr = document.querySelector(".modal-container");
 const submit = document.querySelector("#submit");
 const closeBtn = document.querySelector("#close");
-let bookContainer = document.querySelector(".books");
+const bookContainer = document.querySelector(".books");
 
-// Hides modal
-function removeModal() {
-  modalCtnr.classList.remove("show");
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
 
-let myLibrary = [];
+class Library {
+  constructor() {
+    this.books = [];
+  }
 
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+  inLibrary(addedBook) {
+    return this.books.some((book) => book.title === addedBook.title);
+  }
+  addBook(addedBook) {
+    if (!this.inLibrary(addedBook)) {
+      this.books.push(addedBook);
+    } else {
+      console.log("Book already in Library!");
+    }
+  }
+  resetLibrary() {
+    bookContainer.innerHTML = " ";
+  }
+  removeBook(book) {
+    const ind = this.books.indexOf(book);
+    if (ind !== -1) {
+      return this.books.splice(ind, 1);
+    }
+  }
+  makeLibrary() {
+    this.resetLibrary();
+    for (let book of this.books) {
+      this.createBookItem(book);
+    }
+  }
+  createBookItem(book) {
+    const bookItem = document.createElement("div");
+    const title = document.createElement("h3");
+    const author = document.createElement("span");
+    const pages = document.createElement("span");
+    const btnContainer = document.createElement("div");
+    const isRead = document.createElement("span");
+    const deleteBtn = document.createElement("span");
+
+    bookItem.classList.add("book");
+    isRead.classList.add("read-class");
+    btnContainer.classList.add("btn-container");
+    deleteBtn.classList.add("deleteBtn");
+
+    bookItem.appendChild(title);
+    bookItem.appendChild(author);
+    bookItem.appendChild(pages);
+    bookItem.appendChild(btnContainer);
+    btnContainer.appendChild(isRead);
+    btnContainer.appendChild(deleteBtn);
+
+    bookContainer.appendChild(bookItem);
+
+    author.textContent = `By ${book.author}`;
+    pages.textContent = `${book.pages} pages`;
+    title.textContent = `${book.title}`;
+    deleteBtn.textContent = "Delete";
+
+    const status = document.querySelector("#read-status").checked;
+    if (status === true) {
+      isRead.textContent = "Read";
+    } else {
+      isRead.textContent = "Not Read";
+    }
+    deleteBtn.addEventListener("click", () => {
+      this.removeBook(book);
+      this.makeLibrary();
+    });
+  }
 }
+
+// Creating myLibrary Object
+const myLibrary = new Library();
 
 function makeBook(e) {
-  // get input from form, make new book with input
   e.preventDefault();
+  const title = document.getElementById("title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const isRead = document.querySelector("#read-status").checked;
 
-  let title = document.getElementById("title").value;
-  let author = document.querySelector("#author").value;
-  let pages = document.querySelector("#pages").value;
-  let isRead = document.querySelector("#read-status").checked;
-
-  let book = new Book(title, author, pages, isRead);
-  addBookToLibrary(book);
-  makeLibrary();
+  const book = new Book(title, author, pages, isRead);
+  myLibrary.addBook(book);
+  myLibrary.makeLibrary();
   resetForm();
 }
 function resetForm() {
-  title.value = "";
-  author.value = "";
-  pages.value = 0;
+  document.getElementById("title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#read-status").checked = false;
 }
-function makeLibrary() {
-  resetLibrary();
-  for (let book of myLibrary) {
-    makeBookItem(book);
-  }
+function removeModal() {
+  modalCtnr.classList.remove("show");
 }
-function resetLibrary() {
-  bookContainer.innerHTML = "";
-}
-function makeBookItem(book) {
-  let bookItem = document.createElement("div");
-  let title = document.createElement("h3");
-  let author = document.createElement("span");
-  let pages = document.createElement("span");
-  let isRead = document.createElement("span");
-
-  bookItem.classList.add("book");
-  isRead.classList.add("read-class");
-  bookItem.appendChild(title);
-  bookItem.appendChild(author);
-  bookItem.appendChild(pages);
-  bookItem.appendChild(isRead);
-
-  bookContainer.appendChild(bookItem);
-  author.textContent = `By: ${book.author}`;
-  pages.textContent = `${book.pages} pages`;
-  title.textContent = `${book.title}`;
-
-  let status = document.querySelector("#read-status").checked;
-  if (status === true) {
-    isRead.textContent = "Read";
-  } else {
-    isRead.textContent = "Not Read";
-  }
-
-  //bookItem.dataset.book = myLibrary.indexOf(book);
-}
-
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-submit.addEventListener("click", (e) => makeBook(e));
-
-addBtn.addEventListener("click", () => {
+function showModal() {
   modalCtnr.classList.add("show");
-});
-// addBtn.addEventListener("click", () => {
-//   resetForm();
-// });
+}
+
+//Event Listeners
+
 addBtn.addEventListener("click", resetForm);
+addBtn.addEventListener("click", showModal);
+submit.addEventListener("click", makeBook);
 submit.addEventListener("click", resetForm);
 submit.addEventListener("click", removeModal);
 closeBtn.addEventListener("click", removeModal);
