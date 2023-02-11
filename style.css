@@ -26,9 +26,13 @@ header {
     align-items: center;
     background: rgb(0, 0, 0);
 }
-h1 {
+h1 span {
     font-size: 5rem;
     font-weight: bold;
+}
+.init {
+    font-size: 4.6rem;
+    color: rgb(200, 14, 64);
 }
 a {
     text-decoration: none;
@@ -74,12 +78,36 @@ main {
     padding: 0 50px;
 }
 .book {
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+    align-items: center;
     border: 2px solid white;
     border-radius: 1rem;
     background-color: white;
+    color: black;
     box-shadow: 5px 5px 5px rgb(62, 18, 29);
     height: 300px;
-    width: 300px;
+    width: 400px;
+}
+h3 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 0 10px;
+    color: rgb(200, 14, 64);
+}
+span {
+    font-size: 2rem;
+}
+.read-class {
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 2rem;
+    color: white;
+    background-color: rgb(200, 14, 64);
+    box-shadow: 5px 5px 5px rgb(62, 18, 29);
 }
 .quote {
     display: flex;
@@ -106,7 +134,7 @@ main {
 button {
     box-shadow: 5px 5px 5px rgb(62, 18, 29);
 }
-#submit, #close {
+#submit, #close, .bookBtn {
     align-self: center; 
     text-align: center;
     font-size: 1.8rem;
@@ -122,7 +150,10 @@ button {
     justify-content: center;
     gap: 2rem;
 }
-#submit:hover, #close:hover, .add:hover, .login:hover {
+.bookBtn{
+    color: white;
+}
+#submit:hover, #close:hover, .add:hover, .login:hover, .bookBtn:hover {
     background-color: rgb(200, 14, 64);
     border: 2px solid rgb(200, 14, 64);
     cursor: pointer;
